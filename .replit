@@ -1,0 +1,15 @@
+entrypoint = "server.js"
+run = "npm start"
+
+[nix]
+channel = "stable-24_05"
+packages = ["nodejs_22", "chromium"]
+
+[deployment]
+deploymentTarget = "cloudrun"
+run = ["npm", "start"]
+build = ["npm", "install"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80

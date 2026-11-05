@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#202124">
+  <title>Nova Browser</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <section id="login" class="login-screen">
+    <div class="login-card">
+      <div class="logo-mark">N</div>
+      <h1>Nova Browser</h1>
+      <p>Your browser, running remotely.</p>
+      <form id="login-form">
+        <input id="password" type="password" placeholder="Browser password" autocomplete="current-password" required>
+        <button type="submit">Unlock browser</button>
+        <div id="login-error" role="alert"></div>
+      </form>
+    </div>
+  </section>
+
+  <main id="browser-app" class="app hidden">
+    <header class="chrome">
+      <div class="tab-strip">
+        <div id="tabs" class="tabs"></div>
+        <button id="new-tab" class="tab-add" title="New tab">+</button>
+        <div class="window-space"></div>
+        <button id="logout" class="top-action" title="Lock browser">Lock</button>
+      </div>
+      <div class="toolbar">
+        <div class="nav-buttons">
+          <button id="back" class="tool-button" title="Back" aria-label="Back">‹</button>
+          <button id="forward" class="tool-button" title="Forward" aria-label="Forward">›</button>
+          <button id="reload" class="tool-button" title="Reload" aria-label="Reload">↻</button>
+          <button id="home" class="tool-button" title="Home" aria-label="Home">⌂</button>
+        </div>
+        <form id="address-form" class="address-form">
+          <span class="secure-icon">●</span>
+          <input id="address" type="text" spellcheck="false" autocomplete="off" placeholder="Search Google or enter a URL">
+          <button type="submit" title="Go">↵</button>
+        </form>
+        <button id="new-tab-toolbar" class="tool-button plus-toolbar" title="New tab">＋</button>
+      </div>
+    </header>
+
+    <section class="browser-stage">
+      <div id="loading" class="loading"><span class="spinner"></span><span>Starting Chromium…</span></div>
+      <img id="screen" alt="Live remote browser display" draggable="false">
+      <div id="fatal" class="fatal hidden"></div>
+    </section>
+    <footer class="statusbar">
+      <span><i class="status-dot"></i> Remote Chromium</span>
+      <span id="status">Connecting…</span>
+      <span>Nova Browser</span>
+    </footer>
+    <div id="toast" class="toast"></div>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
